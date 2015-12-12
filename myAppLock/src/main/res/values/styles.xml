@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+
+    <style name="CodeFont" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">@drawable/lockscreen_button</item>
+        <item name="android:textColor">#CCCCCC</item>
+        <item name="android:textSize">35dip</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">10dip</item>
+        <item name="android:layout_marginTop">10dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginRight">5dip</item>
+    </style>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+    -->
+
+
+    <style name="CustomActionBarTheme" parent="@android:style/Theme.Holo">
+        <item name="android:actionBarTabStyle">@style/MyActionBarTabs</item>
+    </style>
+
+    <!-- ActionBar tabs styles -->
+    <style name="MyActionBarTabs" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <!-- tab indicator -->
+
+    </style>
+    <!-- Application theme. -->
+
+    <style name="AppTheme" parent="AppTheme.Base.Blue"/>
+
+
+    <style name="AppTheme.Base.Blue" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryDark">@color/blue_primary_dark</item>
+        <item name="colorAccent">@color/blue_accent</item>
+        <item name="android:textColorPrimary">@color/blue_primary_text</item>
+        <item name="android:textColorSecondary">@color/blue_secondary_text</item>
+        <item name="android:icon">@color/blue_icons</item>
+        <item name="android:divider">@color/blue_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Amber" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/amber_primary</item>
+        <item name="colorPrimaryDark">@color/amber_primary_dark</item>
+        <item name="colorAccent">@color/amber_accent</item>
+        <item name="android:textColorPrimary">@color/amber_primary_text</item>
+        <item name="android:textColorSecondary">@color/amber_secondary_text</item>
+        <item name="android:icon">@color/amber_icons</item>
+        <item name="android:divider">@color/amber_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.BlueGray" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue_gray_primary</item>
+        <item name="colorPrimaryDark">@color/blue_gray_primary_dark</item>
+        <item name="colorAccent">@color/blue_gray_accent</item>
+        <item name="android:textColorPrimary">@color/blue_gray_primary_text</item>
+        <item name="android:textColorSecondary">@color/blue_gray_secondary_text</item>
+        <item name="android:icon">@color/blue_gray_icons</item>
+        <item name="android:divider">@color/blue_gray_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Browen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/browen_primary</item>
+        <item name="colorPrimaryDark">@color/browen_primary_dark</item>
+        <item name="colorAccent">@color/browen_accent</item>
+        <item name="android:textColorPrimary">@color/browen_primary_text</item>
+        <item name="android:textColorSecondary">@color/browen_secondary_text</item>
+        <item name="android:icon">@color/browen_icons</item>
+        <item name="android:divider">@color/browen_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Cyan" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/cyan_primary</item>
+        <item name="colorPrimaryDark">@color/cyan_primary_dark</item>
+        <item name="colorAccent">@color/cyan_accent</item>
+        <item name="android:textColorPrimary">@color/cyan_primary_text</item>
+        <item name="android:textColorSecondary">@color/cyan_secondary_text</item>
+        <item name="android:icon">@color/cyan_icons</item>
+        <item name="android:divider">@color/cyan_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.DeepOrange" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/deep_orange_primary</item>
+        <item name="colorPrimaryDark">@color/deep_orange_primary_dark</item>
+        <item name="colorAccent">@color/deep_orange_accent</item>
+        <item name="android:textColorPrimary">@color/deep_orange_primary_text</item>
+        <item name="android:textColorSecondary">@color/deep_orange_secondary_text</item>
+        <item name="android:icon">@color/deep_orange_icons</item>
+        <item name="android:divider">@color/deep_orange_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.DeepPurple" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/deep_purple_primary</item>
+        <item name="colorPrimaryDark">@color/deep_purple_primary_dark</item>
+        <item name="colorAccent">@color/deep_purple_accent</item>
+        <item name="android:textColorPrimary">@color/deep_purple_primary_text</item>
+        <item name="android:textColorSecondary">@color/deep_purple_secondary_text</item>
+        <item name="android:icon">@color/deep_purple_icons</item>
+        <item name="android:divider">@color/deep_purple_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Green" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/green_primary</item>
+        <item name="colorPrimaryDark">@color/green_primary_dark</item>
+        <item name="colorAccent">@color/green_accent</item>
+        <item name="android:textColorPrimary">@color/green_primary_text</item>
+        <item name="android:textColorSecondary">@color/green_secondary_text</item>
+        <item name="android:icon">@color/green_icons</item>
+        <item name="android:divider">@color/green_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Gray" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/gray_primary</item>
+        <item name="colorPrimaryDark">@color/gray_primary_dark</item>
+        <item name="colorAccent">@color/gray_accent</item>
+        <item name="android:textColorPrimary">@color/gray_primary_text</item>
+        <item name="android:textColorSecondary">@color/gray_secondary_text</item>
+        <item name="android:icon">@color/gray_icons</item>
+        <item name="android:divider">@color/gray_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Indigo" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/indigo_primary</item>
+        <item name="colorPrimaryDark">@color/indigo_primary_dark</item>
+        <item name="colorAccent">@color/indigo_accent</item>
+        <item name="android:textColorPrimary">@color/indigo_primary_text</item>
+        <item name="android:textColorSecondary">@color/indigo_secondary_text</item>
+        <item name="android:icon">@color/indigo_icons</item>
+        <item name="android:divider">@color/indigo_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.LightBlue" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/light_blue_primary</item>
+        <item name="colorPrimaryDark">@color/light_blue_primary_dark</item>
+        <item name="colorAccent">@color/light_blue_accent</item>
+        <item name="android:textColorPrimary">@color/light_blue_primary_text</item>
+        <item name="android:textColorSecondary">@color/light_blue_secondary_text</item>
+        <item name="android:icon">@color/light_blue_icons</item>
+        <item name="android:divider">@color/light_blue_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.LightGreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/light_green_primary</item>
+        <item name="colorPrimaryDark">@color/light_green_primary_dark</item>
+        <item name="colorAccent">@color/light_green_accent</item>
+        <item name="android:textColorPrimary">@color/light_green_primary_text</item>
+        <item name="android:textColorSecondary">@color/light_green_secondary_text</item>
+        <item name="android:icon">@color/light_green_icons</item>
+        <item name="android:divider">@color/light_green_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Lime" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/lime_primary</item>
+        <item name="colorPrimaryDark">@color/lime_primary_dark</item>
+        <item name="colorAccent">@color/lime_accent</item>
+        <item name="android:textColorPrimary">@color/lime_primary_text</item>
+        <item name="android:textColorSecondary">@color/lime_secondary_text</item>
+        <item name="android:icon">@color/lime_icons</item>
+        <item name="android:divider">@color/lime_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Orange" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/orange_primary</item>
+        <item name="colorPrimaryDark">@color/orange_primary_dark</item>
+        <item name="colorAccent">@color/orange_accent</item>
+        <item name="android:textColorPrimary">@color/orange_primary_text</item>
+        <item name="android:textColorSecondary">@color/orange_secondary_text</item>
+        <item name="android:icon">@color/orange_icons</item>
+        <item name="android:divider">@color/orange_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Pink" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/pink_primary</item>
+        <item name="colorPrimaryDark">@color/pink_primary_dark</item>
+        <item name="colorAccent">@color/pink_accent</item>
+        <item name="android:textColorPrimary">@color/pink_primary_text</item>
+        <item name="android:textColorSecondary">@color/pink_secondary_text</item>
+        <item name="android:icon">@color/pink_icons</item>
+        <item name="android:divider">@color/pink_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Purple" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_primary</item>
+        <item name="colorPrimaryDark">@color/purple_primary_dark</item>
+        <item name="colorAccent">@color/purple_accent</item>
+        <item name="android:textColorPrimary">@color/purple_primary_text</item>
+        <item name="android:textColorSecondary">@color/purple_secondary_text</item>
+        <item name="android:icon">@color/purple_icons</item>
+        <item name="android:divider">@color/purple_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Red" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/red_primary</item>
+        <item name="colorPrimaryDark">@color/red_primary_dark</item>
+        <item name="colorAccent">@color/red_accent</item>
+        <item name="android:textColorPrimary">@color/red_primary_text</item>
+        <item name="android:textColorSecondary">@color/red_secondary_text</item>
+        <item name="android:icon">@color/red_icons</item>
+        <item name="android:divider">@color/red_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.darkGreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/dark_green_primary</item>
+        <item name="colorPrimaryDark">@color/dark_green_primary_dark</item>
+        <item name="colorAccent">@color/dark_green_accent</item>
+        <item name="android:textColorPrimary">@color/dark_green_primary_text</item>
+        <item name="android:textColorSecondary">@color/dark_green_secondary_text</item>
+        <item name="android:icon">@color/dark_green_icons</item>
+        <item name="android:divider">@color/dark_green_divider</item>
+    </style>
+
+    <style name="AppTheme.Base.Yellow" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/yellow_primary</item>
+        <item name="colorPrimaryDark">@color/yellow_primary_dark</item>
+        <item name="colorAccent">@color/yellow_accent</item>
+        <item name="android:textColorPrimary">@color/yellow_primary_text</item>
+        <item name="android:textColorSecondary">@color/yellow_secondary_text</item>
+        <item name="android:icon">@color/yellow_icons</item>
+        <item name="android:divider">@color/yellow_divider</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/tabsScrollColor</item>
+    </style>
+</resources>

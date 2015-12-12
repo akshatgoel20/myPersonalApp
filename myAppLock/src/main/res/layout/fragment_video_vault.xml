@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <GridView
+        android:id="@+id/gridView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_add_images"
+        android:padding="5dp"
+        android:numColumns="2" >
+
+    </GridView>
+
+    <TextView
+        android:id="@+id/tv_add_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:background="@android:color/darker_gray"
+        android:gravity="center_horizontal|center"
+        android:text="Add Videos" />
+
+</RelativeLayout>

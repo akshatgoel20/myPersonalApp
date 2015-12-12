@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="orange">#ff9900</color>
+    <color name="btn_pressed">#84D6F7</color>
+    <color name="btn_normal">#3c98de</color>
+    <color name="item_pressed">#33CCFF</color>
+    <color name="about_us_text">#15517c</color>
+    <color name="item_normal">#F1F1F1</color>
+    <color name="btn_disabled">#d4d0c8</color>
+    <color name="darkblue">#3c98de</color>
+    <color name="darkblue2">#483D8B</color>
+    <color name="btn_red">#cc0000</color>
+    <color name="setting_backgroud_color">#D8D8D8</color>
+
+    <color name="btn_green">#1dce06</color>
+    <color name="btn_orange">#ff9900</color>
+    <color name="gray">#E0E0E0</color>
+
+    <color name="bg_attendance_screen">#365a7c</color>
+    <color name="bg_action_bar">#2b3d53</color>
+
+    <color name="app_color">#45C1EB</color>
+    <color name="dialog_color">#8845C1EB</color>
+    <color name="gray_transparent">#00D3D3D3</color>
+    <color name="gray_layout_color">#00D3D3D3</color>
+
+
+    <color name="ripple_material_teal">#ff149691</color>
+    <color name="material_teal">@color/material_deep_teal_500</color>
+    <color name="windowBackgroundColor">#333333</color>
+    <color name="black_translucent">#80000000</color>
+    <color name="tabsScrollColor">#E0E0E0</color>
+
+
+    <!--Deep Blue Color Theme-->
+    <color name="deep_blue_primary">#673AB7</color>
+    <color name="deep_blue_primary_dark">#512DA8</color>
+    <color name="deep_blue_primary_light">#D1C4E9</color>
+    <color name="deep_blue_accent">#7C4DFF</color>
+    <color name="deep_blue_primary_text">#212121</color>
+    <color name="deep_blue_secondary_text">#727272</color>
+    <color name="deep_blue_icons">#FFFFFF</color>
+    <color name="deep_blue_divider">#B6B6B6</color>
+
+    <!--Amber Color Theme-->
+    <color name="amber_primary">#FFC107</color>
+    <color name="amber_primary_dark">#FFA000</color>
+    <color name="amber_primary_light">#FFECB3</color>
+    <color name="amber_accent">#FFC107</color>
+    <color name="amber_primary_text">#212121</color>
+    <color name="amber_secondary_text">#727272</color>
+    <color name="amber_icons">#212121</color>
+    <color name="amber_divider">#B6B6B6</color>
+
+
+
+    <!--Blue Color Theme-->
+    <color name="blue_primary">#2196F3</color>
+    <color name="blue_primary_dark">#1976D2</color>
+    <color name="blue_primary_light">#BBDEFB</color>
+    <color name="blue_accent">#448AFF</color>
+    <color name="blue_primary_text">#212121</color>
+    <color name="blue_secondary_text">#727272</color>
+    <color name="blue_icons">#FFFFFF</color>
+    <color name="blue_divider">#B6B6B6</color>
+
+    <!--Blue Gray Color Theme-->
+    <color name="blue_gray_primary">#607D8B</color>
+    <color name="blue_gray_primary_dark">#455A64</color>
+    <color name="blue_gray_primary_light">#CFD8DC</color>
+    <color name="blue_gray_accent">#607D8B</color>
+    <color name="blue_gray_primary_text">#212121</color>
+    <color name="blue_gray_secondary_text">#727272</color>
+    <color name="blue_gray_icons">#FFFFFF</color>
+    <color name="blue_gray_divider">#B6B6B6</color>
+
+    <!--Browen Color Theme-->
+    <color name="browen_primary">#795548</color>
+    <color name="browen_primary_dark">#5D4037</color>
+    <color name="browen_primary_light">#D7CCC8</color>
+    <color name="browen_accent">#795548</color>
+    <color name="browen_primary_text">#212121</color>
+    <color name="browen_secondary_text">#727272</color>
+    <color name="browen_icons">#FFFFFF</color>
+    <color name="browen_divider">#B6B6B6</color>
+
+
+    <!--Cyan Color Theme-->
+    <color name="cyan_primary">#00BCD4</color>
+    <color name="cyan_primary_dark">#0097A7</color>
+    <color name="cyan_primary_light">#B2EBF2</color>
+    <color name="cyan_accent">#00BCD4</color>
+    <color name="cyan_primary_text">#212121</color>
+    <color name="cyan_secondary_text">#727272</color>
+    <color name="cyan_icons">#FFFFFF</color>
+    <color name="cyan_divider">#B6B6B6</color>
+
+
+    <!--Deep Orange Color Theme-->
+    <color name="deep_orange_primary">#FF5722</color>
+    <color name="deep_orange_primary_dark">#E64A19</color>
+    <color name="deep_orange_primary_light">#FFCCBC</color>
+    <color name="deep_orange_accent">#FF5722</color>
+    <color name="deep_orange_primary_text">#212121</color>
+    <color name="deep_orange_secondary_text">#727272</color>
+    <color name="deep_orange_icons">#FFFFFF</color>
+    <color name="deep_orange_divider">#B6B6B6</color>
+
+
+    <!--Deep Purple Color Theme-->
+    <color name="deep_purple_primary">#673AB7</color>
+    <color name="deep_purple_primary_dark">#512DA8</color>
+    <color name="deep_purple_primary_light">#D1C4E9</color>
+    <color name="deep_purple_accent">#7C4DFF</color>
+    <color name="deep_purple_primary_text">#212121</color>
+    <color name="deep_purple_secondary_text">#727272</color>
+    <color name="deep_purple_icons">#FFFFFF</color>
+    <color name="deep_purple_divider">#B6B6B6</color>
+
+
+    <!--Green Color Theme-->
+    <color name="green_primary">#4CAF50</color>
+    <color name="green_primary_dark">#388E3C</color>
+    <color name="green_primary_light">#C8E6C9</color>
+    <color name="green_accent">#4CAF50</color>
+    <color name="green_primary_text">#212121</color>
+    <color name="green_secondary_text">#727272</color>
+    <color name="green_icons">#FFFFFF</color>
+    <color name="green_divider">#B6B6B6</color>
+
+    <!--Gray Color Theme-->
+    <color name="gray_primary">#9E9E9E</color>
+    <color name="gray_primary_dark">#616161</color>
+    <color name="gray_primary_light">#F5F5F5</color>
+    <color name="gray_accent">#9E9E9E</color>
+    <color name="gray_primary_text">#212121</color>
+    <color name="gray_secondary_text">#727272</color>
+    <color name="gray_icons">#212121</color>
+    <color name="gray_divider">#B6B6B6</color>
+
+
+
+    <!--Indigo Color Theme-->
+    <color name="indigo_primary">#3F51B5</color>
+    <color name="indigo_primary_dark">#303F9F</color>
+    <color name="indigo_primary_light">#C5CAE9</color>
+    <color name="indigo_accent">#536DFE</color>
+    <color name="indigo_primary_text">#212121</color>
+    <color name="indigo_secondary_text">#727272</color>
+    <color name="indigo_icons">#FFFFFF</color>
+    <color name="indigo_divider">#B6B6B6</color>
+
+
+
+    <!--Light Blue Color Theme-->
+    <color name="light_blue_primary">#03A9F4</color>
+    <color name="light_blue_primary_dark">#0288D1</color>
+    <color name="light_blue_primary_light">#B3E5FC</color>
+    <color name="light_blue_accent">#03A9F4</color>
+    <color name="light_blue_primary_text">#212121</color>
+    <color name="light_blue_secondary_text">#727272</color>
+    <color name="light_blue_icons">#FFFFFF</color>
+    <color name="light_blue_divider">#B6B6B6</color>
+
+    <!--Light Green Color Theme-->
+    <color name="light_green_primary">#8BC34A</color>
+    <color name="light_green_primary_dark">#689F38</color>
+    <color name="light_green_primary_light">#DCEDC8</color>
+    <color name="light_green_accent">#8BC34A</color>
+    <color name="light_green_primary_text">#212121</color>
+    <color name="light_green_secondary_text">#727272</color>
+    <color name="light_green_icons">#212121</color>
+    <color name="light_green_divider">#B6B6B6</color>
+
+    <!--Lime Color Theme-->
+    <color name="lime_primary">#CDDC39</color>
+    <color name="lime_primary_dark">#AFB42B</color>
+    <color name="lime_primary_light">#F0F4C3</color>
+    <color name="lime_accent">#CDDC39</color>
+    <color name="lime_primary_text">#212121</color>
+    <color name="lime_secondary_text">#727272</color>
+    <color name="lime_icons">#212121</color>
+    <color name="lime_divider">#B6B6B6</color>
+
+    <!--Orange Color Theme-->
+    <color name="orange_primary">#FF9800</color>
+    <color name="orange_primary_dark">#F57C00</color>
+    <color name="orange_primary_light">#FFE0B2</color>
+    <color name="orange_accent">#FF9800</color>
+    <color name="orange_primary_text">#212121</color>
+    <color name="orange_secondary_text">#727272</color>
+    <color name="orange_icons">#212121</color>
+    <color name="orange_divider">#B6B6B6</color>
+
+
+    <!--Pink Color Theme-->
+    <color name="pink_primary">#E91E63</color>
+    <color name="pink_primary_dark">#C2185B</color>
+    <color name="pink_primary_light">#F8BBD0</color>
+    <color name="pink_accent">#FF4081</color>
+    <color name="pink_primary_text">#212121</color>
+    <color name="pink_secondary_text">#727272</color>
+    <color name="pink_icons">#FFFFFF</color>
+    <color name="pink_divider">#B6B6B6</color>
+
+
+
+    <!--Purple Color Theme-->
+    <color name="purple_primary">#9C27B0</color>
+    <color name="purple_primary_dark">#7B1FA2</color>
+    <color name="purple_primary_light">#E1BEE7</color>
+    <color name="purple_accent">#E040FB</color>
+    <color name="purple_primary_text">#212121</color>
+    <color name="purple_secondary_text">#727272</color>
+    <color name="purple_icons">#FFFFFF</color>
+    <color name="purple_divider">#B6B6B6</color>
+
+    <!--Red Color Theme-->
+    <color name="red_primary">#F44336</color>
+    <color name="red_primary_dark">#D32F2F</color>
+    <color name="red_primary_light">#FFCDD2</color>
+    <color name="red_accent">#FF5252</color>
+    <color name="red_primary_text">#212121</color>
+    <color name="red_secondary_text">#727272</color>
+    <color name="red_icons">#FFFFFF</color>
+    <color name="red_divider">#B6B6B6</color>
+
+    <!--Dark Green Color Theme-->
+    <color name="dark_green_primary">#009688</color>
+    <color name="dark_green_primary_dark">#00796B</color>
+    <color name="dark_green_primary_light">#B2DFDB</color>
+    <color name="dark_green_accent">#009688</color>
+    <color name="dark_green_primary_text">#212121</color>
+    <color name="dark_green_secondary_text">#727272</color>
+    <color name="dark_green_icons">#FFFFFF</color>
+    <color name="dark_green_divider">#B6B6B6</color>
+
+
+
+    <!--Yellow Color Theme-->
+    <color name="yellow_primary">#FFEB3B</color>
+    <color name="yellow_primary_dark">#FBC02D</color>
+    <color name="yellow_primary_light">#FFF9C4</color>
+    <color name="yellow_accent">#FFEB3B</color>
+    <color name="yellow_primary_text">#212121</color>
+    <color name="yellow_secondary_text">#727272</color>
+    <color name="yellow_icons">#212121</color>
+    <color name="yellow_divider">#B6B6B6</color>
+
+</resources>

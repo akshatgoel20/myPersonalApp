@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2012 Hai Bison
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<resources>
+
+    <attr name="alp_42447968_color_pattern_path" format="reference" />
+
+    <color name="alp_42447968_pattern_path_light">@android:color/white</color>
+    <color name="alp_42447968_pattern_path_dark">#999999</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="orange">#ff9900</color>
+    <color name="btn_pressed">#84D6F7</color>
+    <color name="btn_normal">#3c98de</color>
+    <color name="item_pressed">#33CCFF</color>
+    <color name="about_us_text">#15517c</color>
+    <color name="item_normal">#F1F1F1</color>
+    <color name="btn_disabled">#d4d0c8</color>
+    <color name="darkblue">#3c98de</color>
+    <color name="darkblue2">#483D8B</color>
+    <color name="btn_red">#cc0000</color>
+    <color name="setting_backgroud_color">#D8D8D8</color>
+    <color name="btn_green">#1dce06</color>
+    <color name="btn_orange">#ff9900</color>
+    <color name="gray">#E0E0E0</color>
+
+</resources>

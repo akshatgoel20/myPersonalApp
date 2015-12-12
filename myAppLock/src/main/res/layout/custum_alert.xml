@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:background="@drawable/set_new_lock_btn_ractangle_drawable"
+        android:minHeight="0dp"
+        android:padding="12dp"
+        android:text="Set Password"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5sp"
+        android:background="@drawable/set_new_lock_btn_ractangle_drawable"
+        android:minHeight="0dp"
+        android:padding="12dp"
+        android:text="Set Pattern"
+        android:textSize="12sp" />
+
+</LinearLayout>

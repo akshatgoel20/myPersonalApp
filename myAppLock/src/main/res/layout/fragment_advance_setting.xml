@@ -1,0 +1,365 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white" >
+
+    <ScrollView
+        android:id="@+id/sv_main_scrolView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_setting_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/btn_normal"
+                android:padding="5dp"
+                android:text="Relock Setting"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_seprator"
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:background="@android:color/darker_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_item1_relock_policy_enable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:paddingLeft="10dp" >
+
+                    <CheckBox
+                        android:id="@+id/cb_item1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:id="@+id/tv_relock_policy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Relock Policy"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_child_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_relock_policy"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="Not requiered a password after uplocking for period of time" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_item2_relock_timeout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:paddingLeft="10dp" >
+
+                    <TextView
+                        android:id="@+id/tv_item2_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Relock timeout"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_item2_child"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_item2_title"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="Relock time" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_item3_relock_on_app_unlock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:paddingLeft="10dp" >
+
+                    <CheckBox
+                        android:id="@+id/cb_item3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:id="@+id/tv_item3_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Relock After screen on"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_item3_child"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_item3_title"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="Relock all the application after screen is locked" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/tv_advance_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn_normal"
+                    android:padding="5dp"
+                    android:text="Advance"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_item4_hide_applock_from_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:clickable="true"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="10dp" >
+
+                    <CheckBox
+                        android:id="@+id/cb_item4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:id="@+id/tv_item4_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Hide AppLock"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_item4_child"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_item4_title"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="Hide Applock icon from home" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_item5_hide_images_gallery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:paddingLeft="10dp" >
+
+                    <CheckBox
+                        android:id="@+id/cb_item5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:id="@+id/tv_item5_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Hide from gallery"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_item5_child"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_item5_title"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="Hide images from gallery" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_item6_lock_new_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:paddingLeft="10dp" >
+
+                    <CheckBox
+                        android:id="@+id/cb_item6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:id="@+id/tv_item6_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Lock the new app"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_item6_child"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_item6_title"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="Whenevr you install the new app , you can one tap to lock the app" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/tv_notification_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/btn_normal"
+                    android:padding="5dp"
+                    android:text="Notification setting"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_item8_show_lock_notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style_ssd"
+                    android:paddingLeft="10dp" >
+
+                    <CheckBox
+                        android:id="@+id/cb_item8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:clickable="false" />
+
+                    <TextView
+                        android:id="@+id/tv_item8_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="2dp"
+                        android:padding="1dp"
+                        android:text="Show AppLock"
+                        android:textSize="16dp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/tv_item8_child"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/tv_item8_title"
+                        android:layout_marginRight="30dp"
+                        android:padding="1dp"
+                        android:text="note displayed in notification bar" />
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/v_seprator8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

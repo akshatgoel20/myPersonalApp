@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.mylock.HomeActivity" >
+
+    <item
+        android:id="@+id/select_all"
+        android:title="@string/select_all_menu"
+        android:orderInCategory="1"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/deSelect_all"
+        android:orderInCategory="2"
+        android:title="@string/deselect_all_menu"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/refresh"
+        android:orderInCategory="3"
+        android:title="@string/refresh_menu"
+        app:showAsAction="never"/>
+
+</menu>

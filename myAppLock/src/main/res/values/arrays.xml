@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="relock_timeout_entries">
+        <item>10 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minutes</item>
+        <item>3 minutes</item>
+        <item>5 minutes</item>
+        <item>Until screen in unlocked</item>
+    </string-array>
+    <string-array name="relock_timeout_values">
+        <item>1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="home_activities">
+        <item>FAB &amp; Toolbar Animation</item>
+        <item>Transparent Toolbar Test</item>
+        <item>Navigation Drawer</item>
+        <item>Toolbar Animation with Image</item>
+        <item>Material Style Tabs</item>
+        <item>Card View Toolbar</item>
+        <item>Quick Return Pattern</item>
+
+    </string-array>
+
+    <string-array name="home_activities_subtitle">
+        <item>G+ like on scroll hide animation</item>
+        <item>Overlaid transparent Toolbar</item>
+        <item>Material Design drawer with scrim</item>
+        <item>Using the new Support Design Library</item>
+        <item>Tab strip with Design Support Lib</item>
+        <item>Nested Toolbar in card</item>
+        <item>UI Pattern using Design Support Lib</item>
+
+    </string-array>
+
+</resources>
