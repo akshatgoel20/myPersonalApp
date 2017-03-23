@@ -14,10 +14,7 @@ import com.myapplock.models.MediaObject;
 
 import java.util.ArrayList;
 
-/**
- * Created by Other on 13-07-2015.
- */
-public class AllGalleryImageAdapter extends RecyclerView.Adapter<AllGalleryImageAdapter.CustumView> {
+public class AllGalleryImageAdapter extends RecyclerView.Adapter<AllGalleryImageAdapter.CustomView> {
 
     private ItemClickListner mItemClickListener;
     private ArrayList<MediaObject> mGalleryPhotoAlbumlist;
@@ -29,12 +26,12 @@ public class AllGalleryImageAdapter extends RecyclerView.Adapter<AllGalleryImage
     }
 
 
-    public class CustumView extends RecyclerView.ViewHolder implements View.OnClickListener {
+     class CustomView extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private ImageView mAlbumCover;
         private ImageView selectedImage;
 
-        public CustumView(View itemView) {
+         CustomView(View itemView) {
             super(itemView);
             mAlbumCover = (ImageView) itemView.findViewById(R.id.iv_img_name);
             selectedImage = (ImageView) itemView.findViewById(R.id.selected_img);
@@ -56,14 +53,14 @@ public class AllGalleryImageAdapter extends RecyclerView.Adapter<AllGalleryImage
 
 
     @Override
-    public CustumView onCreateViewHolder(ViewGroup parent, int viewType) {
+    public CustomView onCreateViewHolder(ViewGroup parent, int viewType) {
         View  v = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_image, null);
-        CustumView mh = new CustumView(v);
+        CustomView mh = new CustomView(v);
         return mh;
     }
 
     @Override
-    public void onBindViewHolder(CustumView holder, int position) {
+    public void onBindViewHolder(CustomView holder, int position) {
 
         holder.mAlbumCover.setScaleType(ImageView.ScaleType.CENTER_CROP);
         holder.mAlbumCover.setPadding(8, 8, 8, 8);

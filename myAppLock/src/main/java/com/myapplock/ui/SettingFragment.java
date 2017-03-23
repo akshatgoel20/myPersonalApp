@@ -38,7 +38,7 @@ public class SettingFragment extends Fragment implements OnClickListener
 
     private static final String PASSWORD_PATTERN1 = "^[a-zA-Z0-9]*$";
 
-    private static final int REQ_CREATE_PATTERN = 1;
+    public static final int REQ_CREATE_PATTERN = 1;
 
     private Pattern pattern;
 
@@ -147,16 +147,14 @@ public class SettingFragment extends Fragment implements OnClickListener
             case R.id.rb_pattern:
                 mPatternLockEnable.setChecked(true);
                 mPasswordLockEnable.setChecked(false);
-                MyAppLockPreferences.saveBoolToPref(getActivity(), MyAppLockConstansts.PREF_CURRENT_LOCK_MODE,
-                        true);
+                MyAppLockPreferences.saveBoolToPref(getActivity(), MyAppLockConstansts.PREF_CURRENT_LOCK_MODE,true);
                 savePatternSetting("Pattern");
 
                 break;
             case R.id.rb_password:
                 mPasswordLockEnable.setChecked(true);
                 mPatternLockEnable.setChecked(false);
-                MyAppLockPreferences.saveBoolToPref(getActivity(), MyAppLockConstansts.PREF_CURRENT_LOCK_MODE,
-                        false);
+                MyAppLockPreferences.saveBoolToPref(getActivity(), MyAppLockConstansts.PREF_CURRENT_LOCK_MODE, false);
                 savePatternSetting("Passowrd");
                 break;
             case R.id.cb_vibrate_check:
@@ -268,7 +266,7 @@ public class SettingFragment extends Fragment implements OnClickListener
             CommonUtils.showAlert(getActivity(), "Please enter Password");
         } else if (mConfirmPassword_edt.length() <= 0) {
             CommonUtils.showAlert(getActivity(), "Please enter Confirm Password");
-        } else if (CommonUtils.checkForSamePassword(mPassword_edt.getText().toString(), mConfirmPassword_edt.getText()
+        } else if (!CommonUtils.checkForSamePassword(mPassword_edt.getText().toString(), mConfirmPassword_edt.getText()
             .toString())) {
             CommonUtils.showAlert(getActivity(), "Password and Confirm Password shoulb be same");
         } else {

@@ -1,5 +1,7 @@
 package com.myapplock.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -18,28 +20,37 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.myapplock.R;
-import com.myapplock.application.MyAppLock;
+import com.myapplock.callbacks.Response;
 import com.myapplock.database.UpdateDB;
 import com.myapplock.models.AppItems;
 import com.myapplock.models.LockedAppDetails;
 import com.myapplock.utils.CommonUtils;
+import com.myapplock.utils.MyAppLockConstansts;
+import com.myapplock.utils.MyAppLockPreferences;
+
+import static com.myapplock.application.MyAppLock.getAppContext;
+import static com.myapplock.application.MyAppLock.getInstance;
+import static com.myapplock.utils.MyAppLockConstansts.PREF_DEFAULT_PASSWORD_SET;
 
 public class SetNewPasswordFragment extends DialogFragment
 {
     private EditText mPassword_edt, mConfirmPassword_edt, mPasswordHint_edt;
-
+    private LinearLayout mDialogView;
     private AppItems appItems;
-
     private UpdateDB appInfoDB;
-    private MyAppLock myAppLock;
+    private Response mResponse;
+
     public SetNewPasswordFragment(){
 
     }
 
     public static SetNewPasswordFragment newInstance()
     {
-        SetNewPasswordFragment dialog = new SetNewPasswordFragment();
-        return dialog;
+        return new SetNewPasswordFragment();
+    }
+
+    public void setCallback(Response mPasswordCalback){
+        mResponse=mPasswordCalback;
     }
 
     @Override
@@ -47,17 +58,31 @@ public class SetNewPasswordFragment extends DialogFragment
     {
         View rootView = inflater.inflate(R.layout.layout_custom_alert_dialog, container, false);
         initView(rootView);
-//        setDialogPosition();
         return rootView;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
+        if(getArguments()!=null && getArguments().getBoolean("FromStart")){
+            setDialogPos();
+        }
+    }
+
+    private void setDialogPos(){
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.weight = 1.0f;
+        params.gravity = Gravity.CENTER_VERTICAL;
+
+        mDialogView.setLayoutParams(params);
+    }
 
     private void setDialogPosition() {
         Window window = getDialog().getWindow();
 
         // set "origin" to top left corner, so to speak
-        window.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP);
+        window.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL);
 
         // after that, setting values for x and y works "naturally"
         WindowManager.LayoutParams params = window.getAttributes();
@@ -79,6 +104,7 @@ public class SetNewPasswordFragment extends DialogFragment
         mPassword_edt = (EditText) mView.findViewById(R.id.edt_password);
         mConfirmPassword_edt = (EditText) mView.findViewById(R.id.edt_confirm_password);
         mPasswordHint_edt = (EditText) mView.findViewById(R.id.edt_hint);
+        mDialogView= (LinearLayout) mView.findViewById(R.id.ll_custum_dialog);
 
         mView.findViewById(R.id.ll_password_setting).setOnClickListener(new OnClickListener() {
 
@@ -92,9 +118,10 @@ public class SetNewPasswordFragment extends DialogFragment
 
         TextView mAppName=(TextView)mView.findViewById(R.id.app_name);
         mAppName.setText(appItems.getAppName());
-        appIcon.setImageDrawable(appItems.getmAppIcon());
+        if(null!=appItems.getmAppIcon()){
+            appIcon.setImageDrawable(appItems.getmAppIcon());
+        }
     }
-
 
 
     private void validateViews(){
@@ -106,7 +133,7 @@ public class SetNewPasswordFragment extends DialogFragment
             CommonUtils.showAlert(getActivity(),"password and confirm password should be same");
         }else{
             setPassword();
-            dismissDialog();
+
         }
     }
 
@@ -117,17 +144,25 @@ public class SetNewPasswordFragment extends DialogFragment
         lockedAppDetails.setAppLockKey(mPassword_edt.getText().toString());
         lockedAppDetails.setAppLockKeyHint(mPasswordHint_edt.getText().toString());
         lockedAppDetails.setAppLockType(CommonUtils.LockType.Password.ordinal());
-        getDBInstance().insertAppKeyDetailIntoDB(lockedAppDetails);
-        saveToPreference(appItems);
+        if(appItems.getAppName().equalsIgnoreCase(getActivity().getString(R.string.set_default_pwd))){
+            MyAppLockPreferences.saveBoolToPref(getAppContext(), PREF_DEFAULT_PASSWORD_SET,true);
+            MyAppLockPreferences.saveStrToPref(getAppContext(), MyAppLockConstansts.PREF_PASSWORD, mPassword_edt.getText().toString());
+            showSetPasswordAlert("Your default password has been saved. now setup default pattren for the apps",true);
+        }else{
+            getDBInstance().insertAppKeyDetailIntoDB(lockedAppDetails);
+            saveToPreference(appItems);
+        }
+
     }
 
     private void saveToPreference(AppItems appItems) {
         appItems.setOpen(false);
         appItems.setStatus(true);
 
-        getAppContext().getLockedAppList().add(appItems);
-        getAppContext().getUnlockedAppList().remove(appItems);
+        getInstance().getLockedAppList().add(appItems);
+        getInstance().getUnlockedAppList().remove(appItems);
         getDBInstance().UpdateAppIntoDB(appItems);
+        showSetPasswordAlert("Your password has been saved",true);
 
     }
     public void dismissDialog() {
@@ -142,10 +177,17 @@ public class SetNewPasswordFragment extends DialogFragment
         }
         return appInfoDB;
     }
-    private MyAppLock  getAppContext(){
-        if(myAppLock==null){
-            myAppLock=(MyAppLock)getActivity().getApplicationContext();
-        }
-        return myAppLock;
+
+   private void showSetPasswordAlert(String msg,final boolean isdefault){
+      new AlertDialog.Builder(getActivity() ).setMessage(msg).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+           @Override
+           public void onClick(DialogInterface dialog, int which) {
+               if(isdefault){
+                   mResponse.passwordSaved();
+               }
+               dialog.dismiss();
+               dismiss();
+           }
+       }).create().show();
     }
 }

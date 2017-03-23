@@ -42,23 +42,55 @@ public class LockScreenActivity extends Activity implements OnClickListener, Tex
     protected void onCreate(Bundle arg0)
     {
         super.onCreate(arg0);
-        checkPatternType();
 
+        checkPatternType();
+        overridePendingTransition(R.anim.enter, R.anim.exit);
+//        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+        //closing transition animations
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 
     private void checkPatternType()
     {
-        lockedAppDetails = getDBInstance().getLockedAppKeyList().get(getIntent().getStringExtra(MyAppLockConstansts.BlockedPackageName));
+        String blockedPackageName=getIntent().getStringExtra(MyAppLockConstansts.BlockedPackageName);
+        lockedAppDetails = getDBInstance().getLockedAppKeyList().get(blockedPackageName);
 
-        if (lockedAppDetails.getAppLockType()== CommonUtils.LockType.Password.ordinal()) {
-            setContentView(R.layout.lockscreen);
-            initView();
-        } else {
-            Intent intent =
-                    new Intent(LockPatternActivity.ACTION_COMPARE_PATTERN, null, this, LockPatternActivity.class);
-            intent.putExtra(LockPatternActivity.EXTRA_PATTERN, lockedAppDetails.getAppLockKey().toCharArray());
-            startActivityForResult(intent, REQ_ENTER_PATTERN);
+        if (null == lockedAppDetails) {
+            if(blockedPackageName.equalsIgnoreCase(this.getPackageName())){
+                lockedAppDetails=new LockedAppDetails();
+                lockedAppDetails.setAppName(blockedPackageName);
+                if(MyAppLockPreferences.getStringFromPreferences(this,MyAppLockConstansts.PREF_PATTREN_LOCKMODE,"").equalsIgnoreCase("Passowrd")){
+                    lockedAppDetails.setAppLockKey(MyAppLockPreferences.getStringFromPreferences(this,MyAppLockConstansts.PREF_PASSWORD,""));
+                    lockedAppDetails.setAppLockType(CommonUtils.LockType.Password.ordinal());
+                }else {
+                    lockedAppDetails.setAppLockKey(MyAppLockPreferences.getStringFromPreferences(this,MyAppLockConstansts.PREF_PATTERN,""));
+                    lockedAppDetails.setAppLockType(CommonUtils.LockType.Pattern.ordinal());
+                }
+
+            }
         }
+        if (lockedAppDetails.getAppLockType() == CommonUtils.LockType.Password.ordinal()) {
+            openPasswordScreen();
+        } else {
+            openPatternScreen(lockedAppDetails.getAppLockKey());
+        }
+    }
+
+    private void openPatternScreen(String pattern) {
+        Intent intent =  new Intent(LockPatternActivity.ACTION_COMPARE_PATTERN, null, this, LockPatternActivity.class);
+        intent.putExtra(LockPatternActivity.EXTRA_PATTERN, pattern.toCharArray());
+        startActivityForResult(intent, REQ_ENTER_PATTERN);
+    }
+
+    private void openPasswordScreen() {
+        setContentView(R.layout.lockscreen);
+        initView();
     }
 
     @SuppressLint("NewApi")
@@ -168,6 +200,10 @@ public class LockScreenActivity extends Activity implements OnClickListener, Tex
     public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3)
     {
     }
+
+
+
+
 
     private void enterPassword(String passcode)
     {

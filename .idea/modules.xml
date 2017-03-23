@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyAppLock.iml" filepath="$PROJECT_DIR$/MyAppLock.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidlockpattern/androidlockpattern.iml" filepath="$PROJECT_DIR$/androidlockpattern/androidlockpattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/myAppLock/myAppLock.iml" filepath="$PROJECT_DIR$/myAppLock/myAppLock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myPersonalApp.iml" filepath="$PROJECT_DIR$/myPersonalApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources/universal-image-loader-1.9.1-with-sources.iml" filepath="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources/universal-image-loader-1.9.1-with-sources.iml" />
     </modules>
   </component>

@@ -12,9 +12,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/androidlockpattern" />
             <option value="$PROJECT_DIR$/myAppLock" />
-            <option value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
           </set>
         </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

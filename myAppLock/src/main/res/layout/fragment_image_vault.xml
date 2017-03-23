@@ -19,8 +19,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:layout_gravity="bottom|right"
-        android:src="@drawable/fab_background"
-
+        android:src="@android:drawable/btn_plus"
       />
 
 </android.support.design.widget.CoordinatorLayout>

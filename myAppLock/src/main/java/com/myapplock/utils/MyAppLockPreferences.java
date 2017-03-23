@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
+import com.myapplock.application.MyAppLock;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -82,7 +84,7 @@ public class MyAppLockPreferences
 
 	public static SharedPreferences getPrefs(Context context)
 	{
-		return context.getSharedPreferences(MyAppLockConstansts.PREF_NAME, context.MODE_PRIVATE);
+		return MyAppLock.getAppContext().getSharedPreferences(MyAppLockConstansts.PREF_NAME, context.MODE_PRIVATE);
 
 	}
 	public static void saveMap(Context context,Map<String,Boolean> inputMap){

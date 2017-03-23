@@ -5,5 +5,6 @@ import com.myapplock.models.BlockAppItem;
 public interface ActivityStartingListener
 {
     // public void onActivityStarting(String packageName, String activityName);
-    public void onActivityStarting(BlockAppItem appItem);
+    void onActivityStarting(BlockAppItem appItem);
+    void setLastPackageToEmplty();
 }

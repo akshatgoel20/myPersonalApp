@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -17,18 +16,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.haibison.android.lockpattern.LockPatternActivity;
 import com.myapplock.R;
 import com.myapplock.adapter.TabsPagerAdapter;
 import com.myapplock.interfaces.UpdateListContent;
-import com.myapplock.service.LaunchDetectorService;
-import com.myapplock.utils.CommonUtils;
 import com.myapplock.utils.MyAppLockConstansts;
 import com.myapplock.utils.MyAppLockPreferences;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+import static com.myapplock.application.MyAppLock.getAppContext;
+import static com.myapplock.ui.SettingFragment.REQ_CREATE_PATTERN;
+import static com.myapplock.utils.MyAppLockConstansts.PREF_DEFAULT_PATTERN_SET;
+
+public class HomeActivity extends AppCompatActivity  {
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -53,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mTitle = getTitle();
         initViews();
-
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 
     private void initViews() {
@@ -62,7 +64,6 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        checkFirstInstall();
         initNavigationView();
         initViewPager();
         initDrawer();
@@ -257,47 +258,25 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void checkFirstInstall() {
-        boolean isRunning = CommonUtils.isMyServiceRunning(this, LaunchDetectorService.class);
-        if (!isRunning) {
-            startService(new Intent(this, LaunchDetectorService.class));
-        }
-        if (!MyAppLockPreferences.getBoolFromPref(this, MyAppLockConstansts.PREF_FIRST_INSTALL_COMPLETE,false))
-        {
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_FIRST_INSTALL_COMPLETE, true);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_SERVICE_ENABLED, isRunning);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_CURRENT_LOCK_MODE, false);
-            MyAppLockPreferences.saveStrToPref(this, MyAppLockConstansts.PREF_PASSWORD, "0000");
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_AUTO_START, true);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_VIBRATE, false);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_LOCKPATTERN_VISIBLE, true);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_RELOCKPOLICY_ENABLE, false);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_RELOCKPOLICY_ONSCREEN_ON, false);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_HIDE_APPLOCK_FROM_HOME, false);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_LOCK_NEW_APP, false);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_HIDE_IMAGES_FROM_GALLERY, true);
-            MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_SHOW_NOTIFICATION_BAR, false);
-        }
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         requestCode &= 0xffff;
         super.onActivityResult(requestCode, resultCode, data);
+
         if (MyAppLockConstansts.cuurentFragment.equalsIgnoreCase("AllAppsLandingFragment")) {
             Fragment generalSettingFragment = getSupportFragmentManager().getFragments().get(0);
             if (generalSettingFragment != null) {
                 generalSettingFragment.onActivityResult(requestCode, resultCode, data);
             }
-        } else {
-        Fragment settingFragment = getSupportFragmentManager().findFragmentByTag("Setting");
-        if (settingFragment != null) {
-            Fragment generalSettingFragment = getActiveFragment();
-            if (generalSettingFragment != null) {
-                generalSettingFragment.onActivityResult(requestCode, resultCode, data);
+        } else  if (MyAppLockConstansts.cuurentFragment.equalsIgnoreCase("Setting")) {
+            Fragment settingFragment = getSupportFragmentManager().findFragmentByTag("Setting");
+            if (settingFragment != null && requestCode==REQ_CREATE_PATTERN) {
+                if (resultCode == RESULT_OK) {
+                    char[] pattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
+                    savePattern(pattern);
+                }
             }
         }
-    }
     }
     /**
      * get Active Fragment from BackStack
@@ -310,7 +289,16 @@ public class HomeActivity extends AppCompatActivity {
             return null;
         }
         String tag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
-        return (Fragment) getSupportFragmentManager().findFragmentByTag(tag);
+        return getSupportFragmentManager().findFragmentByTag(tag);
     }
+
+
+
+
+    private void savePattern(char[] pattern){
+        MyAppLockPreferences.saveBoolToPref(getAppContext(), PREF_DEFAULT_PATTERN_SET,true);
+        MyAppLockPreferences.saveStrToPref(this, MyAppLockConstansts.PREF_PATTERN, new String(pattern));
+    }
+
 
 }

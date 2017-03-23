@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-
+            android:layout_gravity="center_vertical"
             android:background="@drawable/bg_dialog"
             >
             <LinearLayout
@@ -30,38 +30,17 @@
                 android:orientation="horizontal"
                 >
 
-                <ImageView
-                    android:id="@+id/app_icon_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_launcher" />
-
                 <TextView
                     android:id="@+id/app_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/white"
-                    android:text="AppANme"
+                    android:text="Set Lock Type"
                     android:textSize="16dp"
                     android:layout_marginLeft="10dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-
-
-            <TextView
-                android:id="@+id/dialog_message"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:text="Set new password"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"
-                />
 
             <LinearLayout
                 android:id="@+id/ll_button_panel"
@@ -75,60 +54,44 @@
                 android:paddingRight="5dip"
                 android:weightSum="1" >
 
-                <EditText
-                    android:id="@+id/edt_password"
+                <RadioButton
+                    android:id="@+id/rb_password_mode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
-                    android:hint="@string/password"
-                    android:inputType="numberPassword"
+                    android:text="@string/password_lock"
+                    android:textColor="@android:color/white"
+                    android:padding="5dp"
+                    android:textSize="18sp" >
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rb_pattern_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/pattern_lock"
                     android:textColor="@android:color/white"
                     android:maxLength="15"
                     android:padding="5dp"
-                    android:textSize="14sp" >
-                </EditText>
+                    android:textSize="18sp" >
+                </RadioButton>
 
-                <EditText
-                    android:id="@+id/edt_confirm_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/confirm_password"
-                    android:inputType="numberPassword"
-                    android:textColor="@android:color/white"
-                    android:maxLength="15"
-                    android:padding="5dp"
-                    android:textSize="14sp" >
-                </EditText>
-
-                <EditText
-                    android:id="@+id/edt_hint"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/password_hint"
-                    android:inputType="text"
-                    android:maxLength="25"
-                    android:padding="5dp"
-                    android:textSize="14sp" >
-                </EditText>
 
                 <Button
                     android:id="@+id/ll_password_setting"
-                    android:layout_width="match_parent"
+                    android:layout_width="265dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/set_new_lock_btn_ractangle_drawable"
                     android:gravity="center_vertical|center"
                     android:minHeight="0dp"
                     android:padding="5dp"
+                    android:layout_margin="10dp"
                     android:text="@string/password_settings"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />

@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LaunchingHiddenAppActivity extends AppCompatActivity {
+
     private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
@@ -39,11 +40,8 @@ public class LaunchingHiddenAppActivity extends AppCompatActivity {
     private TabsPagerAdapter mAdapter;
 
     private boolean isHomeScreen = true;
-
     private String Titles[] = {"UNLOCKED APPS", "LOCKED APPS"};
-
     private CharSequence mTitle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +85,7 @@ public class LaunchingHiddenAppActivity extends AppCompatActivity {
     }
 
     private void initViewPager() {
-        List<Fragment> fragments = new ArrayList<Fragment>();
+        List<Fragment> fragments = new ArrayList<>();
         fragments.add(new AllAppsLandingFragment());
         fragments.add(new LockedAppsLandingFragment());
 
@@ -237,14 +235,7 @@ public class LaunchingHiddenAppActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.deSelect_all) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return item.getItemId() == R.id.deSelect_all || super.onOptionsItemSelected(item);
     }
 
     private void checkFirstInstall() {
@@ -295,7 +286,6 @@ public class LaunchingHiddenAppActivity extends AppCompatActivity {
 
     /**
      * get Active Fragment from BackStack
-     * @return
      */
     public Fragment getActiveFragment()
     {
@@ -304,6 +294,6 @@ public class LaunchingHiddenAppActivity extends AppCompatActivity {
             return null;
         }
         String tag = getSupportFragmentManager().getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1).getName();
-        return (Fragment) getSupportFragmentManager().findFragmentByTag(tag);
+        return getSupportFragmentManager().findFragmentByTag(tag);
     }
 }

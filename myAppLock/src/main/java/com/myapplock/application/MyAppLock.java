@@ -1,6 +1,7 @@
 package com.myapplock.application;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.myapplock.models.AppItems;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -14,6 +15,20 @@ import java.util.ArrayList;
  * Created by amjaiswal on 7/9/2015.
  */
 public class MyAppLock extends Application{
+
+    private static MyAppLock instance;
+
+    public static MyAppLock getInstance(){
+        if(instance==null){
+            instance=new MyAppLock();
+        }
+        return instance;
+    }
+
+    public static Context getAppContext(){
+        return getInstance();
+    }
+
 
     private ArrayList<AppItems> lockedAppList;
 
@@ -46,7 +61,7 @@ public class MyAppLock extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
-
+        instance=this;
         initImageLoader();
     }
 
@@ -55,13 +70,6 @@ public class MyAppLock extends Application{
                 this).threadPriority(Thread.NORM_PRIORITY - 2)
                 .denyCacheImageMultipleSizesInMemory()
                 .tasksProcessingOrder(QueueProcessingType.FIFO)
-                        // .imageDownloader(DownloadModule.getCustomImageDownaloder(this))
-                        // .discCacheFileNameGenerator(new FileNameGenerator() {
-                        // @Override
-                        // public String generate(String imageUri) {
-                        // return Utils.getNostraImageFileName(imageUri);
-                        // }
-                        // })
                 .memoryCache(new WeakMemoryCache());
 
         ImageLoader.getInstance().init(builder.build());

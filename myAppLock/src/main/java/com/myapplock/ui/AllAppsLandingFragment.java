@@ -1,15 +1,21 @@
 package com.myapplock.ui;
 
+import android.app.AppOpsManager;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +51,10 @@ import java.util.List;
 public class AllAppsLandingFragment extends Fragment implements OnClickListener,UpdateListContent {
 
 
-
+    public static final int MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS = 101;
+    public static final int DEFAULT = 103;
+    public static final int PASSWORD = 104;
+    public static final int PATTERN = 105;
     private View mView;
 
     private RecyclerView mAppListView;
@@ -281,17 +290,19 @@ public class AllAppsLandingFragment extends Fragment implements OnClickListener,
                         switch (view.getId()) {
                             case R.id.left:
 
-                                saveToPreference(model);
-
+//                                saveToPreference(model);
+                                CheckAndAccept(DEFAULT,model);
                                 Toast.makeText(getActivity(), "Letf: " + position, Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.middel:
-                                createPassword(model);
+//                                createPassword(model);
+                                CheckAndAccept(PASSWORD,model);
                                 Toast.makeText(getActivity(), "Middel: " + position, Toast.LENGTH_SHORT).show();
                                 break;
 
                             case R.id.right:
-                                createPattern(model);
+//                                createPattern(model);
+                                CheckAndAccept(PATTERN,model);
                                 Toast.makeText(getActivity(), "Right: " + position, Toast.LENGTH_SHORT).show();
                                 break;
 
@@ -310,7 +321,7 @@ public class AllAppsLandingFragment extends Fragment implements OnClickListener,
                             model.setOpen(true);
                             tempPos = position;
                         }
-                       getListClose(position);
+                        getListClose(position);
                     }
                     adapter.notifyDataSetChanged();
                 }
@@ -330,12 +341,15 @@ public class AllAppsLandingFragment extends Fragment implements OnClickListener,
     }
 
 
-
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         // in fragment class callback
         switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS:
+                if (hasPermission()){
+                    //getStats();
+                }
+                break;
             case REQ_CREATE_PATTERN: {
                 if (resultCode == getActivity().RESULT_OK) {
                     char[] pattern = data.getCharArrayExtra(LockPatternActivity.EXTRA_PATTERN);
@@ -415,5 +429,48 @@ public class AllAppsLandingFragment extends Fragment implements OnClickListener,
             myAppLock=(MyAppLock)getActivity().getApplicationContext();
         }
         return myAppLock;
+    }
+
+
+
+    private boolean hasPermission() {
+        AppOpsManager appOps = (AppOpsManager) getActivity().getSystemService(Context.APP_OPS_SERVICE);
+        int mode = appOps.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                android.os.Process.myUid(), getActivity().getPackageName());
+        return mode == AppOpsManager.MODE_ALLOWED;
+    }
+
+    private void  requestPermission(){
+        startActivityForResult(
+                new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS),
+                MY_PERMISSIONS_REQUEST_PACKAGE_USAGE_STATS);
+    }
+
+    private void CheckAndAccept(int passwordType,AppItems appItems) {
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP_MR1 && hasPermission()) {
+            if(passwordType==DEFAULT){
+                saveToPreference(appItems);
+            }else if(passwordType==PASSWORD){
+                createPassword(appItems);
+            }else if(passwordType==PATTERN){
+                createPattern(appItems);
+            }
+        } else {
+            android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getActivity());
+            builder.setMessage("Ask User to take permission");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    requestPermission();
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            });
+            builder.create().show();
+        }
     }
 }

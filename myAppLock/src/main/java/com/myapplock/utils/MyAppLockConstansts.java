@@ -15,6 +15,10 @@ public class MyAppLockConstansts
 
     public static final String PREF_APPLICATION_LIST = "application_list";
 
+    public static final String PREF_DEFAULT_PASSWORD_SET = "defaultPasswordSet";
+
+    public static final String PREF_DEFAULT_PATTERN_SET = "defaultPatternSet";
+
     public static final String PREF_AUTO_START = "start_service_after_boot";
 
     public static final String PREF_VIBRATE = "vibrate_enable";

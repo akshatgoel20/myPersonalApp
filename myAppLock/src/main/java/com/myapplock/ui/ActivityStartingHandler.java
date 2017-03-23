@@ -2,18 +2,21 @@ package com.myapplock.ui;
 
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
-import android.app.ActivityManager.RunningTaskInfo;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.myapplock.database.AppInfoDB;
@@ -30,6 +33,8 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class ActivityStartingHandler implements ActivityStartingListener
 {
@@ -129,18 +134,73 @@ public class ActivityStartingHandler implements ActivityStartingListener
 
     private String getTopPackageName()
     {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            List<RunningTaskInfo> infos = mAm.getRunningTasks(1);
-            return infos.get(0).topActivity.getPackageName();
-        } else {
-
-            return getRunningProcessInfo(mAm).pkgList[0];
+        BlockAppItem  blockAppItem=printForegroundTask();
+        if(null!=blockAppItem){
+           return blockAppItem.getAppPackageName();
         }
+        return "";
     }
+    private BlockAppItem printForegroundTask() {
+        String currentApp = "NULL";
+        BlockAppItem appItem=null;
+        PackageManager pm = mContext.getApplicationContext().getPackageManager();
+        try {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                UsageStatsManager usm = (UsageStatsManager)mContext. getSystemService(Context.USAGE_STATS_SERVICE);
+                long time = System.currentTimeMillis();
+                List<UsageStats> appList = usm.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000 * 1000, time);
+                if (appList != null && appList.size() > 0) {
+                    SortedMap<Long, UsageStats> mySortedMap = new TreeMap<Long, UsageStats>();
+                    for (UsageStats usageStats : appList) {
+                        mySortedMap.put(usageStats.getLastTimeUsed(), usageStats);
+                    }
+                    if (mySortedMap != null && !mySortedMap.isEmpty()) {
+                        currentApp = mySortedMap.get(mySortedMap.lastKey()).getPackageName();
+                        if (!TextUtils.isEmpty(currentApp) && currentApp.equalsIgnoreCase("com.google.android.googlequicksearchbox")) {
+                            currentApp = "";
+                            return null;
+                        }
+                        appItem=new BlockAppItem();
+                        String mActivityName = (String) pm.getApplicationLabel(pm.getApplicationInfo(currentApp, PackageManager.GET_META_DATA));
+                        appItem.setAppName(mActivityName);
+                        appItem.setAppPackageName(currentApp);
+                        appItem.setAppIcon(pm.getApplicationIcon(pm.getApplicationInfo(currentApp,PackageManager.GET_META_DATA)));
+                    }
+                }
+            } else {
+                ActivityManager am = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+                List<ActivityManager.RunningAppProcessInfo> tasks = am.getRunningAppProcesses();
+                currentApp = tasks.get(0).processName;
+                if (!TextUtils.isEmpty(currentApp)) {
+
+                    ApplicationInfo ai;
+                    try {
+                        ai = pm.getApplicationInfo( mContext.getPackageName(), 0);
+                        String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
+                        Drawable icon = pm.getApplicationIcon(currentApp);
+                        appItem=new BlockAppItem();
+                        appItem.setAppName(applicationName);
+                        appItem.setAppPackageName(currentApp);
+                        appItem.setAppIcon(icon);
+
+                    } catch (final PackageManager.NameNotFoundException e) {
+                        ai = null;
+                    }
+                }
+            }
+        }catch (Exception e){
+
+        }
+        Log.e("adapter", "Current App in foreground is: " + currentApp);
+        return appItem;
+    }
+
 
     public void onActivityStarting(BlockAppItem appItem)
     {
+        if(null==appItem){
+            return;
+        }
         // debug: //debug: log.i("Detector","onActivityStarting");
         String packageName = appItem.getAppPackageName();
         String appname = appItem.getAppName();
@@ -156,10 +216,11 @@ public class ActivityStartingHandler implements ActivityStartingListener
                     return;
 
                 if (packageName.equals(mContext.getPackageName())) {
+
                     // Of course cannot block lock screen
                     // debug: //debug: log.i("Detector",activityName);
                     // debug: //debug: log.i("Detector",lockScreenActivityName);
-                    if (activityName.equals(lockScreenActivityName))
+                    if (activityName!=null && activityName.equals(lockScreenActivityName))
                         return;
                     // But we need to block preferences
                     blockActivity(packageName, activityName, appname, appIcone);
@@ -194,6 +255,11 @@ public class ActivityStartingHandler implements ActivityStartingListener
         }
     }
 
+    @Override
+    public void setLastPackageToEmplty() {
+        lastRunningPackage="";
+    }
+
 
     private void blockActivity(String packageName, String activityName, String appname, Drawable appIcone)
     {
@@ -210,6 +276,7 @@ public class ActivityStartingHandler implements ActivityStartingListener
                 .putExtra(MyAppLockConstansts.BlockedAppName, appname).putExtra(MyAppLockConstansts.BlockedAppIcon, b);
 
         mContext.startActivity(lockIntent);
+
 
     }
 

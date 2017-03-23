@@ -10,6 +10,7 @@
     <color name="about_us_text">#15517c</color>
     <color name="item_normal">#F1F1F1</color>
     <color name="btn_disabled">#d4d0c8</color>
+    <color name="notification_template_divider">#15000000</color>
     <color name="darkblue">#3c98de</color>
     <color name="darkblue2">#483D8B</color>
     <color name="btn_red">#cc0000</color>

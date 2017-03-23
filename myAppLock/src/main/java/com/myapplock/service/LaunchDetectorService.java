@@ -8,35 +8,43 @@ package com.myapplock.service;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
-import android.app.ActivityManager.RunningAppProcessInfo;
-import android.app.ActivityManager.RunningTaskInfo;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 import android.util.Log;
 
-import com.myapplock.ui.ActivityStartingHandler;
-import com.myapplock.ui.HomeActivity;
 import com.myapplock.R;
 import com.myapplock.interfaces.ActivityStartingListener;
 import com.myapplock.models.BlockAppItem;
+import com.myapplock.ui.ActivityStartingHandler;
+import com.myapplock.ui.HomeActivity;
 import com.myapplock.utils.MyAppLockConstansts;
 import com.myapplock.utils.MyAppLockPreferences;
 
-import java.lang.reflect.Field;
 import java.util.List;
-import java.util.regex.Matcher;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 public class LaunchDetectorService extends Service
 {
-    public static final String ACTION_DETECTOR_SERVICE = "com.gueei.detector.service";
+
+    private Thread mThread;
+    private UsageStatsManager lUsageStatsManager;
+    private PackageManager pm;
+    private ActivityManager am;
 
     @Override
     public IBinder onBind(Intent intent)
@@ -44,36 +52,30 @@ public class LaunchDetectorService extends Service
         return null;
     }
 
-    private static Thread mThread;
-
-    private NotificationManager mNM;
-
-    Matcher m;
-
-    private static boolean constantInited = false;
 
     @Override
     public void onCreate()
     {
-        // debug: log.i("Detector","Service.Oncreate");
-        initConstant();
-        mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        checkNotificationBarState();
-
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+            lUsageStatsManager = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
+        }
+         pm = getApplicationContext().getPackageManager();
+         am = (ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE);
+         checkNotificationBarState();
+        MyAppLockPreferences.saveBoolToPref(this, MyAppLockConstansts.PREF_SERVICE_ENABLED, true);
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId)
     {
-        handleCommand(intent);
+        handleCommand();
         return Service.START_STICKY;
     }
 
-    private void handleCommand(Intent intent)
+    private void handleCommand()
     {
         startServiceForeground(R.string.service_running);
-
-        startMonitorThread((ActivityManager) this.getSystemService(Context.ACTIVITY_SERVICE));
+        startMonitorThread();
     }
 
     @SuppressWarnings("deprecation")
@@ -106,54 +108,37 @@ public class LaunchDetectorService extends Service
         this.startForeground(serviceRunning, note);
     }
 
-    @SuppressWarnings("deprecation")
-    private void checkNotificationBarState()
-    {
-        boolean show_notificationbar =
-                MyAppLockPreferences.getBoolFromPref(this, MyAppLockConstansts.PREF_SHOW_NOTIFICATION_BAR, false);
-        if (show_notificationbar) {
-            CharSequence text = getText(R.string.service_running);
+    private void checkNotificationBarState() {
+        NotificationCompat.Builder builder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.statusbar_icon)
+                        .setContentTitle("Notifications Example")
+                        .setContentText("This is a test notification");
 
-            Notification notification = new Notification(R.drawable.statusbar_icon, text, System.currentTimeMillis());
+        Intent notificationIntent = new Intent(this, HomeActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
 
-            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, HomeActivity.class), 0);
-
-            notification.setLatestEventInfo(this, text, text, contentIntent);
-            mNM.notify(MyAppLockConstansts.PREF_NOTE_ID, notification);
-        }
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(MyAppLockConstansts.PREF_NOTE_ID, builder.build());
     }
 
-    // private void startMonitorThread(final ActivityManager am)
-    // {
-    // if (mThread != null)
-    // mThread.interrupt();
-    //
-    // mThread = new MonitorlogThread(new ActivityStartingHandler(this));
-    // mThread.start();
-    // }
 
-    private void initConstant()
-    {
-        // debug: log.i("Detector","Service.OninitConstant");
-        if (constantInited)
-            return;
-    }
-
-    private void startMonitorThread(final ActivityManager am)
+    private void startMonitorThread()
     {
         if (mThread != null)
             mThread.interrupt();
 
-        mThread = new MonitorlogThread(new ActivityStartingHandler(this));
+        mThread = new MonitorLogThread(new ActivityStartingHandler(this));
         mThread.start();
     }
 
-    private class MonitorlogThread extends Thread
+    private class MonitorLogThread extends Thread
     {
-
         ActivityStartingListener mListener;
 
-        public MonitorlogThread(ActivityStartingListener listener)
+        MonitorLogThread(ActivityStartingListener listener)
         {
             mListener = listener;
         }
@@ -166,35 +151,14 @@ public class LaunchDetectorService extends Service
             while (!this.isInterrupted()) {
 
                 try {
-                    boolean callActivityHandler = true;
                     Thread.sleep(200);
-                    // //debug: log.i("Detector","try!");
-                    // This is the code I use in my service to identify the current foreground application, its really
-                    // easy:
-
-                    ActivityManager am = (ActivityManager) getBaseContext().getSystemService(ACTIVITY_SERVICE);
-                    PackageManager pm = getBaseContext().getPackageManager();
-                    ActivityManager.RunningAppProcessInfo runningProcessInfo = null;
-                    RunningTaskInfo info = null;
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        runningProcessInfo = getTopLauncherActivAppProcess(am);
-                        if (runningProcessInfo == null) {
-                            callActivityHandler = false;
-                        }
-                    } else {
-                        info = am.getRunningTasks(1).get(0);
-                    }
-                    BlockAppItem blockAppItem = getLaunchingAppDetails(pm, info, runningProcessInfo);
-                    String foregroundTaskPackageName = getTopLauncherPackageName(info, runningProcessInfo);
-
-                    String foregroundTaskActivityName = getTopLauncherActivityName(pm, info, runningProcessInfo);
-
-                    Log.e("", "aName: " + foregroundTaskActivityName + " pName: " + foregroundTaskPackageName);
-
-                    if (mListener != null && callActivityHandler) {
-                        // mListener.onActivityStarting(foregroundAppPackageInfo.packageName,foregroundTaskActivityName);
+                    BlockAppItem blockAppItem= printForegroundTask();
+                    if (mListener != null && null!=blockAppItem) {
                         mListener.onActivityStarting(blockAppItem);
+                    }else{
+                        if(null!=mListener){
+                            mListener.setLastPackageToEmplty();
+                        }
                     }
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
@@ -204,99 +168,59 @@ public class LaunchDetectorService extends Service
         }
     }
 
-    private String getTopLauncherPackageName(RunningTaskInfo runningTaskInfo,
-                                             RunningAppProcessInfo runningAppProcessInfo)
-    {
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return runningTaskInfo.topActivity.getPackageName();
-        } else {
-            if (runningAppProcessInfo != null) {
-                return runningAppProcessInfo.pkgList[0];
-            } else {
-                return null;
-            }
-
-        }
-    }
-
-    private RunningAppProcessInfo getTopLauncherActivAppProcess(ActivityManager mActivityManager)
-    {
-        final int PROCESS_STATE_TOP = 2;
-        RunningAppProcessInfo currentInfo = null;
-        Field field = null;
+    private BlockAppItem printForegroundTask() {
+        String currentApp = "NULL";
+        BlockAppItem appItem=null;
         try {
-            field = RunningAppProcessInfo.class.getDeclaredField("processState");
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }
-        List<RunningAppProcessInfo> appList = mActivityManager.getRunningAppProcesses();
-        for (RunningAppProcessInfo app : appList) {
-            if (app.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND && app.importanceReasonCode == 0) {
-                Integer state = null;
-                try {
-                    state = field.getInt(app);
-                } catch (Exception exception) {
-                    exception.printStackTrace();
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                long time = System.currentTimeMillis();
+                List<UsageStats> appList = lUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, time - 1000 * 1000, time);
+                if (appList != null && appList.size() > 0) {
+                    SortedMap<Long, UsageStats> mySortedMap = new TreeMap<>();
+                    for (UsageStats usageStats : appList) {
+                        mySortedMap.put(usageStats.getLastTimeUsed(), usageStats);
+                    }
+                    if (!mySortedMap.isEmpty()) {
+                        currentApp = mySortedMap.get(mySortedMap.lastKey()).getPackageName();
+                        if (!TextUtils.isEmpty(currentApp) && currentApp.equalsIgnoreCase("com.google.android.googlequicksearchbox")) {
+                            return null;
+                        }
+                        appItem=new BlockAppItem();
+                        String mActivityName = (String) pm.getApplicationLabel(pm.getApplicationInfo(currentApp, PackageManager.GET_META_DATA));
+                        appItem.setAppName(mActivityName);
+                        appItem.setAppPackageName(currentApp);
+                        appItem.setAppIcon(pm.getApplicationIcon(pm.getApplicationInfo(currentApp,PackageManager.GET_META_DATA)));
+                    }
                 }
-                if (state != null && state == PROCESS_STATE_TOP) {
-                    currentInfo = app;
-                    break;
-                }
-            }
-        }
-        return currentInfo;
-    }
-
-    private String getTopLauncherActivityName(PackageManager pm, RunningTaskInfo runningTaskInfo,
-                                              RunningAppProcessInfo runningAppProcessInfo)
-    {
-        CharSequence mActivityName = "";
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            return runningTaskInfo.topActivity.getShortClassName();
-        } else {
-            try {
-                mActivityName =
-                        pm.getApplicationLabel(pm.getApplicationInfo(runningAppProcessInfo.processName,
-                                PackageManager.GET_META_DATA));
-                return mActivityName.toString();
-            } catch (Exception e) {
-            }
-        }
-        return "";
-    }
-
-    private BlockAppItem getLaunchingAppDetails(PackageManager pm, RunningTaskInfo runningTaskInfo,
-                                                RunningAppProcessInfo runningAppProcessInfo)
-    {
-        BlockAppItem appItem = new BlockAppItem();
-        try {
-            CharSequence mActivityName = "";
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                appItem.setAppName(runningTaskInfo.topActivity.getShortClassName());
-                appItem.setAppPackageName(runningTaskInfo.topActivity.getPackageName());
-                appItem.setAppIcon(pm.getApplicationIcon(runningTaskInfo.topActivity.getPackageName()));
-                return appItem;
             } else {
-                try {
-                    mActivityName =
-                            pm.getApplicationLabel(pm.getApplicationInfo(runningAppProcessInfo.processName,
-                                    PackageManager.GET_META_DATA));
-                    appItem.setAppName(mActivityName.toString());
-                    appItem.setAppPackageName(runningAppProcessInfo.pkgList[0]);
-                    appItem.setAppIcon(pm.getApplicationIcon(pm.getApplicationInfo(runningAppProcessInfo.processName,
-                            PackageManager.GET_META_DATA)));
-                    return appItem;
 
-                } catch (Exception e) {
+                List<ActivityManager.RunningAppProcessInfo> tasks = am.getRunningAppProcesses();
+                currentApp = tasks.get(0).processName;
+                if (!TextUtils.isEmpty(currentApp)) {
+
+                    ApplicationInfo ai;
+                    try {
+                        ai = pm.getApplicationInfo( this.getPackageName(), 0);
+                        String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
+                        Drawable icon = pm.getApplicationIcon(currentApp);
+                        appItem=new BlockAppItem();
+                        appItem.setAppName(applicationName);
+                        appItem.setAppPackageName(currentApp);
+                        appItem.setAppIcon(icon);
+
+                    } catch (final NameNotFoundException e) {
+                        Log.e("TAG","Error: "+e);
+                    }
                 }
             }
-
-        } catch (NameNotFoundException e) {
-            e.printStackTrace();
+        }catch (Exception e){
+             Log.e("TAG","Error: "+e);
         }
+        Log.e("adapter", "Current App in foreground is: " + currentApp);
         return appItem;
     }
+
+
 
     @Override
     public void onDestroy()

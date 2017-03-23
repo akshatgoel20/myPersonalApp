@@ -21,24 +21,25 @@
     <string name="touch_vibrate">Touch Vibrate</string>
     <string name="pattern_settings">Set Pattern</string>
     <string name="password_settings">Save</string>
-    
+
     <string name="password">Your Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="password_hint">Password hint</string>
-    
+
     <string name="security_ques_title">Security Settings</string>
     <string name="security_ques_ans_setting">Question Answer Setting</string>
-      <string name="security_email_setting">Email Setting</string>
+    <string name="security_email_setting">Email Setting</string>
     <string name="security_ques_hint">Security Question</string>
-     <string name="security_ans_hint">Security Answer</string>
-      <string name="security_email_hint">Security Email</string>
+    <string name="security_ans_hint">Security Answer</string>
+    <string name="security_email_hint">Security Email</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
 
     <string name="home">MyAppLock </string>
     <string name="image_vault">Image Vault</string>
     <string name="video_vault">Video Vault</string>
     <string name="settings">Settings</string>
     <string name="about_us">About Us</string>
+    <string name="set_default_pwd">Set Default Password</string>
 
 </resources>

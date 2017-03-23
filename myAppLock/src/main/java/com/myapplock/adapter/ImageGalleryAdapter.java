@@ -12,13 +12,8 @@ import com.myapplock.R;
 import com.myapplock.interfaces.ItemClickListner;
 import com.myapplock.lazyloading.ImageLoader;
 import com.myapplock.models.GalleryPhotoAlbum;
-import com.myapplock.models.MediaObject;
-import com.myapplock.utils.ProcessGalleryFile;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Other on 13-07-2015.

@@ -1,2 +1,2 @@
-include ':androidlockpattern', ':universal-image-loader-1.9.1-with-sources'
+include ':androidlockpattern'
 include ':myAppLock'
