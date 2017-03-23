@@ -2,49 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37ba0a85-ab0d-40b4-a4c9-ad1748018cad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/callbacks/Response.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/SaveDefaultLockModeFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/SetupActivity.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myAppLock/libs/universal-image-loader-1.9.1-with-sources/universal-image-loader-1.9.1-with-sources.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myPersonalApp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/androidlockpattern/androidlockpattern.iml" afterPath="$PROJECT_DIR$/androidlockpattern/androidlockpattern.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/build.gradle" afterPath="$PROJECT_DIR$/myAppLock/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/myAppLock.iml" afterPath="$PROJECT_DIR$/myAppLock/myAppLock.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/adapter/AllGalleryImageAdapter.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/adapter/AllGalleryImageAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/adapter/ImageGalleryAdapter.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/adapter/ImageGalleryAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/application/MyAppLock.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/application/MyAppLock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/interfaces/ActivityStartingListener.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/interfaces/ActivityStartingListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/service/LaunchDetectorService.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/service/LaunchDetectorService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/ActivityStartingHandler.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/ActivityStartingHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/AllAppsLandingFragment.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/AllAppsLandingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/HomeActivity.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/LaunchingHiddenAppActivity.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/LaunchingHiddenAppActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/LockScreenActivity.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/LockScreenActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/SetNewPasswordFragment.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/SetNewPasswordFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/SettingFragment.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/ui/SettingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/utils/ImageOption.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/utils/ImageOption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/utils/MyAppLockConstansts.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/utils/MyAppLockConstansts.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/utils/MyAppLockPreferences.java" afterPath="$PROJECT_DIR$/myAppLock/src/main/java/com/myapplock/utils/MyAppLockPreferences.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/middile_corner_rect.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/middile_corner_rect.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/middile_corner_rect_drawable.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/middile_corner_rect_drawable.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/middile_corner_rect_hover.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/middile_corner_rect_hover.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/round_rect.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/drawable/round_rect.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/layout/dummy_fragment.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/layout/dummy_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/layout/fragment_image_vault.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/layout/fragment_image_vault.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/layout/layout_custom_alert_dialog.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/layout/layout_custom_alert_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/layout/lockscreen.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/layout/lockscreen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/layout/recyclerlist_item.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/layout/recyclerlist_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values-v11/strings.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values-v11/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values-v11/styles.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values-v11/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values-v14/strings.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values-v14/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values-v14/styles.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values-v14/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values-w820dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values/logcats.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values/logcats.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myAppLock/src/main/res/xml/preferences.xml" afterPath="$PROJECT_DIR$/myAppLock/src/main/res/xml/preferences.xml" />
     </list>
     <ignored path="MyAppLock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,11 +76,11 @@
     <favorites_list name="MyAppLock" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myAppLock/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="408">
               <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
               <folding />
             </state>
@@ -127,8 +90,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/androidlockpattern/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2342,67 +2305,11 @@
             </list>
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by project ':universal-image-loader-1.9.1-with-sources'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of project ':universal-image-loader-1.9.1-with-sources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in project ':universal-image-loader-1.9.1-with-sources'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="dependentComponents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in project ':universal-image-loader-1.9.1-with-sources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in project ':universal-image-loader-1.9.1-with-sources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in project ':universal-image-loader-1.9.1-with-sources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of project ':universal-image-loader-1.9.1-with-sources'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of project ':universal-image-loader-1.9.1-with-sources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from project ':universal-image-loader-1.9.1-with-sources'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/universal-image-loader-1.9.1-with-sources" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
       </map>
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\KNPX0678\StudioProjects\myPersonalApp" value="5961127416349" />
+        <entry key="C:\Users\KNPX0678\StudioProjects\myPersonalApp" value="5961133263903" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2746,6 +2653,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="AndroidView">
@@ -2755,15 +2664,15 @@
               <option name="myItemId" value="myPersonalApp" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="myPersonalApp" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myAppLock" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2776,10 +2685,26 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myPersonalApp" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="androidlockpattern" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lockpattern" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2998,35 +2923,35 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32879046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3045,11 +2970,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/local.properties">
+    <entry file="file://$PROJECT_DIR$/myAppLock/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/androidlockpattern/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="29" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3063,7 +3011,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myAppLock/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="408">
           <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
           <folding />
         </state>
@@ -3087,8 +3035,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/androidlockpattern/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
