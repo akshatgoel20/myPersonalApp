@@ -3,13 +3,10 @@ package com.myapplock.application;
 import android.app.Application;
 import android.content.Context;
 
-import com.myapplock.models.AppItems;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-
-import java.util.ArrayList;
 
 /**
  * Created by amjaiswal on 7/9/2015.
@@ -30,7 +27,7 @@ public class MyAppLock extends Application{
     }
 
 
-    private ArrayList<AppItems> lockedAppList;
+/*    private ArrayList<AppItems> lockedAppList;
 
     private ArrayList<AppItems> unlockedAppList;
 
@@ -56,7 +53,7 @@ public class MyAppLock extends Application{
 
     public void setUnlockedAppList(ArrayList<AppItems> unlockedAppList) {
         this.unlockedAppList = unlockedAppList;
-    }
+    }*/
 
     @Override
     public void onCreate() {

@@ -27,10 +27,10 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.myapplock.R;
-import com.myapplock.interfaces.ActivityStartingListener;
+import com.myapplock.framework.api.ActivityStartingListener;
 import com.myapplock.models.BlockAppItem;
-import com.myapplock.ui.ActivityStartingHandler;
-import com.myapplock.ui.HomeActivity;
+import com.myapplock.framework.impl.ActivityStartingHandler;
+import com.myapplock.ui.activity.HomeActivity;
 import com.myapplock.utils.MyAppLockConstansts;
 import com.myapplock.utils.MyAppLockPreferences;
 

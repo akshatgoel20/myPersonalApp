@@ -118,10 +118,10 @@ public class AppInfoDB extends SQLiteOpenHelper
 					Boolean status = (cursor.getInt(cursor.getColumnIndex(APP_STATUS)) == 1) ? true : false;
 					appItems.setAppName(cursor.getString(cursor.getColumnIndex(APP_NAME)));
 					appItems.setAppPackageName(cursor.getString(cursor.getColumnIndex(APP_PACKAGE_NAME)));
-					appItems.setStatus(status);
+					appItems.setAppLocked(status);
 
 					byte[] appIcon=cursor.getBlob(cursor.getColumnIndex(APP_ICON));
-					appItems.setmAppIcon(CommonUtils.getDrwableFromByte(appIcon));
+					appItems.setAppIcon(CommonUtils.getDrwableFromByte(appIcon));
 					lockedAppList.add(appItems);
 
 				} while (cursor.moveToNext());
@@ -158,10 +158,10 @@ public class AppInfoDB extends SQLiteOpenHelper
 					Boolean status = (cursor.getInt(cursor.getColumnIndex(APP_STATUS)) == 1) ? true : false;
 					appItems.setAppName(cursor.getString(cursor.getColumnIndex(APP_NAME)));
 					appItems.setAppPackageName(cursor.getString(cursor.getColumnIndex(APP_PACKAGE_NAME)));
-					appItems.setStatus(status);
+					appItems.setAppLocked(status);
 
 					byte[] appIcon=cursor.getBlob(cursor.getColumnIndex(APP_ICON));
-					appItems.setmAppIcon(CommonUtils.getDrwableFromByte(appIcon));
+					appItems.setAppIcon(CommonUtils.getDrwableFromByte(appIcon));
 					unlockedAppListAppItems.add(appItems);
 
 				} while (cursor.moveToNext());

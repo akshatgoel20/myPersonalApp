@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.myapplock.R;
-import com.myapplock.interfaces.ItemClickListner;
+import com.myapplock.framework.api.ItemClickListner;
 import com.myapplock.lazyloading.ImageLoader;
 import com.myapplock.models.MediaObject;
 

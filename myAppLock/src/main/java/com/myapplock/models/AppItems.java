@@ -16,9 +16,9 @@ public class AppItems implements Serializable,Cloneable
 
     private String mAppPackageName;
 
-    private boolean mStatus;
+    private boolean mAppLocked;
 
-    private boolean open;
+    private boolean mLayoutOpen;
 
     public String getAppName()
     {
@@ -40,28 +40,25 @@ public class AppItems implements Serializable,Cloneable
         this.mAppPackageName = mAppPackageName;
     }
 
-    public boolean isStatus()
+    public boolean isAppLocked()
     {
-        return mStatus;
+        return mAppLocked;
     }
 
-    public void setStatus(boolean mSelected)
+    public void setAppLocked(boolean mSelected)
     {
-        this.mStatus = mSelected;
+        this.mAppLocked = mSelected;
     }
 
-    public Drawable getmAppIcon()
+    public Drawable getAppIcon()
     {
         return mAppIcon;
     }
 
-    public void setmAppIcon(Drawable mAppIcon)
+    public void setAppIcon(Drawable mAppIcon)
     {
         this.mAppIcon = mAppIcon;
     }
-
-
-
 
     public int getId()
     {
@@ -143,12 +140,12 @@ public class AppItems implements Serializable,Cloneable
     }
 
 
-    public boolean isOpen() {
-        return open;
+    public boolean isLayoutOpen() {
+        return mLayoutOpen;
     }
 
-    public void setOpen(boolean open) {
-        this.open = open;
+    public void setLayoutOpen(boolean mLayoutOpen) {
+        this.mLayoutOpen = mLayoutOpen;
     }
 
     public AppItems clone() {

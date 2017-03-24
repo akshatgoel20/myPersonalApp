@@ -4,8 +4,8 @@
     <string name="app_name">MyLock</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="select_all_menu">Select All</string>
-    <string name="deselect_all_menu">Deselecr All</string>
+    <string name="select_all_menu">Select All With Default Lock Setting</string>
+    <string name="deselect_all_menu">Deselect All</string>
     <string name="refresh_menu">Refresh</string>
     <string name="appLockerPreferenceActivityName">App Locker Preference</string>
     <string name="service_running">Service is Running</string>

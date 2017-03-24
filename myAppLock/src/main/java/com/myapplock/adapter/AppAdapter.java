@@ -18,17 +18,18 @@ import com.myapplock.models.AppItems;
 import com.myapplock.utils.CommonUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AppAdapter extends RecyclerView.Adapter<AppAdapter.CustumViewHolder>
 {
     private OnItemClickListener mItemClickListener;
 
-    private ArrayList<AppItems> mArrayList;
+    private List<AppItems> mArrayList;
 
     private Context mContext;
 
     private int listType;
-    public AppAdapter(Context context, ArrayList<AppItems> ModelArrayList,int pListType)
+    public AppAdapter(Context context, List<AppItems> ModelArrayList, int pListType)
     {
         mArrayList = new ArrayList<AppItems>();
         mArrayList = ModelArrayList;
@@ -67,7 +68,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.CustumViewHolder
             mLeft.setOnClickListener(this);
 
             if(listType== CommonUtils.AppStatus.UnLocked.ordinal()){
-                mMiddel = (Button) itemView.findViewById(R.id.middel);
+                mMiddel = (Button) itemView.findViewById(R.id.right);
                 mRight = (Button) itemView.findViewById(R.id.right);
                 mMiddel.setOnClickListener(this);
                 mRight.setOnClickListener(this);
@@ -85,7 +86,7 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.CustumViewHolder
 
     public interface OnItemClickListener
     {
-        public void onItemClick(View view, int position);
+         void onItemClick(View view, int position);
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener)
@@ -103,10 +104,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.CustumViewHolder
     public void onBindViewHolder(CustumViewHolder viewHolder, int pos)
     {
         viewHolder.personName.setText(mArrayList.get(pos).getAppName());
-        viewHolder.personPhoto.setImageDrawable(mArrayList.get(pos).getmAppIcon());
-//        viewHolder.mSelected.setChecked(mArrayList.get(pos).isStatus());
+        viewHolder.personPhoto.setImageDrawable(mArrayList.get(pos).getAppIcon());
+//        viewHolder.mSelected.setChecked(mArrayList.get(pos).isAppLocked());
 
-        if (mArrayList.get(pos).isOpen()) {
+        if (mArrayList.get(pos).isLayoutOpen()) {
             viewHolder.layout.setVisibility(View.VISIBLE);
         } else {
             viewHolder.layout.setVisibility(View.GONE);

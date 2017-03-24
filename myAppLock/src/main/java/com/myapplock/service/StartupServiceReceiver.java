@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 
-import com.myapplock.ui.LaunchingHiddenAppActivity;
+import com.myapplock.ui.activity.LaunchingHiddenAppActivity;
 import com.myapplock.utils.MyAppLockConstansts;
 import com.myapplock.utils.MyAppLockPreferences;
 

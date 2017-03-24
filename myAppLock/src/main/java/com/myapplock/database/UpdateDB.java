@@ -27,7 +27,7 @@ public class UpdateDB {
         ContentValues contentValues = new ContentValues();
         contentValues.put(AppInfoDB.APP_PACKAGE_NAME, appItems.getAppPackageName());
         contentValues.put(AppInfoDB.APP_NAME, appItems.getAppName());
-        contentValues.put(AppInfoDB.APP_ICON, CommonUtils.getByteFromDrawable(appItems.getmAppIcon()));
+        contentValues.put(AppInfoDB.APP_ICON, CommonUtils.getByteFromDrawable(appItems.getAppIcon()));
         contentValues.put(AppInfoDB.APP_STATUS, CommonUtils.AppStatus.UnLocked.ordinal());
         insertAppInfo(contentValues);
     }
@@ -37,7 +37,7 @@ public class UpdateDB {
         ContentValues contentValues = new ContentValues();
         contentValues.put(AppInfoDB.APP_PACKAGE_NAME, appItems.getAppPackageName());
         contentValues.put(AppInfoDB.APP_NAME, appItems.getAppName());
-        contentValues.put(AppInfoDB.APP_ICON,  CommonUtils.getByteFromDrawable(appItems.getmAppIcon()));
+        contentValues.put(AppInfoDB.APP_ICON,  CommonUtils.getByteFromDrawable(appItems.getAppIcon()));
         contentValues.put(AppInfoDB.APP_STATUS, CommonUtils.AppStatus.Locked.ordinal());
         updateAppInfo(where, contentValues);
     }
@@ -111,7 +111,7 @@ public class UpdateDB {
     }
 
 
-    public ArrayList<AppItems> getLockedAppList() {
+/*    public ArrayList<AppItems> getLockedAppList() {
         Cursor cursor = null;
         SQLiteDatabase database = getDBInstance().getWritableDatabase();
         ArrayList<AppItems> lockedAppList = new ArrayList<AppItems>();
@@ -126,10 +126,10 @@ public class UpdateDB {
                     Boolean status = (cursor.getInt(cursor.getColumnIndex(AppInfoDB.APP_STATUS)) == 1) ? true : false;
                     appItems.setAppName(cursor.getString(cursor.getColumnIndex(AppInfoDB.APP_NAME)));
                     appItems.setAppPackageName(cursor.getString(cursor.getColumnIndex(AppInfoDB.APP_PACKAGE_NAME)));
-                    appItems.setStatus(status);
+                    appItems.setAppLocked(status);
 
                     byte[] appIcon = cursor.getBlob(cursor.getColumnIndex(AppInfoDB.APP_ICON));
-                    appItems.setmAppIcon(CommonUtils.getDrwableFromByte(appIcon));
+                    appItems.setAppIcon(CommonUtils.getDrwableFromByte(appIcon));
                     lockedAppList.add(appItems);
 
                 } while (cursor.moveToNext());
@@ -165,11 +165,49 @@ public class UpdateDB {
                     Boolean status = (cursor.getInt(cursor.getColumnIndex(AppInfoDB.APP_STATUS)) == 1) ? true : false;
                     appItems.setAppName(cursor.getString(cursor.getColumnIndex(AppInfoDB.APP_NAME)));
                     appItems.setAppPackageName(cursor.getString(cursor.getColumnIndex(AppInfoDB.APP_PACKAGE_NAME)));
-                    appItems.setStatus(status);
+                    appItems.setAppLocked(status);
 
                     byte[] appIcon = cursor.getBlob(cursor.getColumnIndex(AppInfoDB.APP_ICON));
 
-                    appItems.setmAppIcon(CommonUtils.getDrwableFromByte(appIcon));
+                    appItems.setAppIcon(CommonUtils.getDrwableFromByte(appIcon));
+                    unlockedAppListAppItems.add(appItems);
+
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                database.close();
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return unlockedAppListAppItems;
+    }*/
+
+    public ArrayList<AppItems> getAllAppList() {
+        Cursor cursor = null;
+        SQLiteDatabase database = getDBInstance().getWritableDatabase();
+        ArrayList<AppItems> unlockedAppListAppItems = new ArrayList<AppItems>();
+        try {
+            cursor = database.query(AppInfoDB.DB_APP_DETAILS_TABLE, null, null, null, null, null, null);
+
+            if (cursor != null) {
+                cursor.moveToFirst();
+                do {
+                    AppItems appItems = new AppItems();
+                    Boolean status = (cursor.getInt(cursor.getColumnIndex(AppInfoDB.APP_STATUS)) == 1) ? true : false;
+                    appItems.setAppName(cursor.getString(cursor.getColumnIndex(AppInfoDB.APP_NAME)));
+                    appItems.setAppPackageName(cursor.getString(cursor.getColumnIndex(AppInfoDB.APP_PACKAGE_NAME)));
+                    appItems.setAppLocked(status);
+
+                    byte[] appIcon = cursor.getBlob(cursor.getColumnIndex(AppInfoDB.APP_ICON));
+
+                    appItems.setAppIcon(CommonUtils.getDrwableFromByte(appIcon));
                     unlockedAppListAppItems.add(appItems);
 
                 } while (cursor.moveToNext());

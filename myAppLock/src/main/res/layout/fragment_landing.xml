@@ -1,111 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  
-    tools:context="com.example.sampletest.MainActivity" >
+    android:layout_height="match_parent">
 
-     <view
-         android:id="@+id/recycler_view"
-         android:layout_width="fill_parent"
-         android:layout_height="fill_parent"
-         android:layout_above="@+id/bottom_layout"
-
-         android:layout_alignParentStart="true"
-         class="android.support.v7.widget.RecyclerView" />
-
-    <LinearLayout
-        android:id="@+id/bottom_layout"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:weightSum="3" >
-
-        <Button
-            android:id="@+id/btn_selectAll"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Select All" />
-
-        <Button
-            android:id="@+id/btn_deSelectAll"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="DeSelect" />
-
-        <Button
-            android:id="@+id/btn_refresh"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Refresh" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:visibility="gone" >
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/begin_button" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/begin_button" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/begin_button" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/main1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_layout"
-        android:layout_alignParentTop="true"
-        android:background="#ffcc88"
-        android:visibility="gone"
-        tools:context=".TestRotateActivity" >
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:text="Test" />
-
-        <Button
-            android:id="@+id/rotate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button1"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="60dp"
-            android:layout_toRightOf="@+id/button1"
-            android:text="Rotate" />
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        />
 
 </RelativeLayout>
